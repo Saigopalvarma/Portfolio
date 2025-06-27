@@ -1,0 +1,1001 @@
+html, body {
+  width: 100vw;
+  min-width: 0;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Ensure all main containers do not overflow */
+.container,
+.section-transition,
+#root,
+body > div {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Center all section content */
+.section-transition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-transition {
+  opacity: 0.5;
+  transform: scale(0.92);
+  transition: opacity 0.7s, transform 0.7s;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.section-transition.active {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.skills-row-animate .skill-float {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+/* Add this to your Portfolio.css or main CSS file */
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 4px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #007bff, #00ffb8, #ff6ec4);
+  opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Update your animated background for a lighter, more appealing 3D effect */
+
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, #e0f7fa 0%, #fce4ec 50%, #e0ffe7 100%);
+  background-size: 200% 200%;
+  animation: bgMove 12s ease-in-out infinite;
+  filter: blur(12px) brightness(1.08) saturate(1.12);
+  opacity: 0.85;
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.04) rotateX(7deg) rotateY(-7deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+/* Elegant, perfectly centered About Me card */
+
+.about-3d {
+  width: 60vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.about-3d-inner {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  min-width: 0;
+  padding: 48px 36px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 1.5px 8px rgba(0,123,255,0.06);
+  color: #23272f;
+  font-size: 1.18rem;
+  text-align: left;
+  border: 2.5px solid #e0e7ef;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2em;
+}
+
+.about-3d-inner p {
+  margin: 0 0 1.2em 0;
+  line-height: 1.7;
+  color: #222b38;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.about-3d-inner::after {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .about-3d-inner {
+    max-width: 98vw;
+    padding: 18px 4vw;
+    font-size: 1rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  }
+  .about-3d {
+    min-height: 100vh;
+    padding: 0;
+  }
+}
+
+/* Responsive for mobile */
+/* @media (max-width: 900px) {
+  .about-3d-inner {
+    width: 96vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    padding: 16px 4vw !important;
+    font-size: 1rem !important;
+    border-radius: 14px !important;
+  }
+  .about-3d {
+    padding: 0 !important;
+    min-height: 220px !important;
+  }
+  .about-3d-inner::after {
+    inset: 4px;
+    border-radius: 8px;
+  }
+} */
+
+/* --- Responsive Layout Improvements --- */
+
+/* Remove excessive padding on about section for all screens */
+.section-transition#about {
+  padding: 0 !important;
+}
+
+/* About card: keep it slightly left on desktop, center on mobile/tablet */
+.about-3d {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 1200px) {
+  .about-3d {
+    justify-content: flex-start;
+    padding-left: 6vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-3d-inner {
+    width: 85vw;
+    padding: 32px 4vw;
+    font-size: 1.08rem;
+  }
+  .about-3d {
+    padding-left: 2vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-3d-inner {
+    width: 96vw;
+    padding: 20px 2vw;
+    font-size: 1rem;
+  }
+  .about-3d {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Skills: responsive grid, always centered, never single column unless very small */
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 18px;
+  justify-items: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2vw;
+}
+
+@media (max-width: 900px) {
+  .skills-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 98vw;
+    padding: 0 1vw;
+  }
+}
+@media (max-width: 600px) {
+  .skills-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    max-width: 99vw;
+    padding: 0 1vw;
+  }
+}
+@media (max-width: 400px) {
+  .skills-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    max-width: 100vw;
+    padding: 0;
+  }
+}
+
+/* Responsive skills section */
+@media (max-width: 1200px) {
+  .skills-row,
+  .d-flex.justify-content-center.align-items-start.mb-4 {
+    flex-direction: column !important;
+    gap: 24px !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .skills-row,
+  .d-flex.justify-content-center.align-items-start.mb-4 {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+  .about-3d-inner {
+    padding: 12px 2vw;
+    font-size: 0.98rem;
+  }
+}
+
+/* Responsive project cards */
+/* @media (max-width: 900px) {
+  .row.w-100.justify-content-center {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .col-md-4.mb-3 {
+    width: 96vw !important;
+    max-width: 420px;
+    margin: 0 auto 18px auto !important;
+  }
+} */
+
+/* Responsive navbar */
+/* @media (max-width: 900px) {
+  .navbar {
+    padding: 8px 8vw !important;
+  }
+  .navbar-nav {
+    gap: 8px !important;
+  }
+} */
+
+/* Ensure section content doesn't overflow on small screens */
+.container {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+/* --- Mobile-first Responsive Improvements --- */
+
+/* Home section: stack image above content and shrink on mobile/tablet */
+/* @media (max-width: 900px) {
+  #home.container {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 0 !important;
+    min-height: 100vh !important;
+    width: 100vw !important;
+  }
+  #home img {
+    position: static !important;
+    width: 60vw !important;
+    height: auto !important;
+    max-width: 180px !important;
+    margin-bottom: 18px !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 50% !important;
+  }
+  #home > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 2vw !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #home h2.mb-3 {
+    font-size: 2.2rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.01em !important;
+    justify-content: center !important;
+  }
+  #home .bi {
+    font-size: 2.2rem !important;
+  }
+  #home a[download] {
+    font-size: 1rem !important;
+    padding: 10px 18px !important;
+  }
+} */
+
+/* About card: shrink and pad for mobile/tablet */
+/* @media (max-width: 900px) {
+  .about-3d-inner {
+    width: 96vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    padding: 14px 2vw !important;
+    font-size: 1rem !important;
+    border-radius: 18px !important;
+  }
+  .about-3d {
+    padding: 0 !important;
+    min-height: 220px !important;
+  }
+} */
+
+/* Skills section: shrink and stack on mobile/tablet */
+/* @media (max-width: 900px) {
+  .skills-row,
+  .d-flex.justify-content-center.align-items-start.mb-4 {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center !important;
+    width: 100vw !important;
+    padding: 0 !important;
+  }
+  .skills-row .skill-float {
+    font-size: 0.95rem !important;
+    padding: 8px 14px !important;
+    border-radius: 14px !important;
+  }
+  .d-flex.flex-column.align-items-center > div {
+    width: 90vw !important;
+    min-width: 0 !important;
+    max-width: 98vw !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+} */
+
+/* Projects section: cards full width on mobile/tablet */
+@media (max-width: 900px) {
+  .row.w-100.justify-content-center {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100vw !important;
+    padding: 0 !important;
+  }
+  .col-md-4.mb-3 {
+    width: 98vw !important;
+    max-width: 100vw !important;
+    margin: 0 auto 14px auto !important;
+  }
+  .card {
+    border-radius: 16px !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  }
+  .card-img-top {
+    max-height: 180px !important;
+    object-fit: cover !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+}
+
+/* Contact section: shrink for mobile/tablet */
+@media (max-width: 900px) {
+  #contact.container {
+    padding: 0 !important;
+    min-width: 0 !important;
+    width: 100vw !important;
+  }
+  #contact h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Navbar: shrink and wrap for mobile/tablet */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 6px 2vw !important;
+    border-radius: 16px !important;
+  }
+  .navbar-nav {
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+  }
+  .nav-link {
+    font-size: 1rem !important;
+    padding: 6px 10px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* General container fix for mobile/tablet */
+/* @media (max-width: 900px) {
+  .container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+} */
+
+/* Hamburger styles for navbar */
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.navbar-toggler-icon {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: 0.3s;
+}
+.navbar-toggler-icon::before {
+  top: -9px;
+}
+.navbar-toggler-icon::after {
+  top: 9px;
+}
+@media (max-width: 900px) {
+  .navbar-toggler {
+    display: inline-block;
+    z-index: 1001;
+  }
+  .navbar {
+    display: none !important;
+  }
+  .navbar.show-mobile {
+    display: block !important;
+    position: absolute;
+    top: 48px;
+    right: 0;
+    left: auto;
+    min-width: 180px;
+    background: #212529;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    padding: 12px 0 !important;
+    z-index: 1001;
+  }
+  .navbar-nav {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
+    padding: 0 16px;
+  }
+}
+
+/* Gradients and glassmorphism always fit viewport */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, #e0f7fa 0%, #fce4ec 50%, #e0ffe7 100%);
+  background-size: 200% 200%;
+  animation: bgMove 12s ease-in-out infinite;
+  filter: blur(12px) brightness(1.08) saturate(1.12);
+  opacity: 0.85;
+  overflow: hidden;
+}
+
+/* Fix for all cards and sections */
+.card,
+.about-3d-inner,
+.skills-row .skill-float {
+  box-sizing: border-box !important;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Remove horizontal scroll on all sections */
+body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skills-row {
+  overflow-x: hidden !important;
+}
+
+/* Ensure project cards and contact form are centered and responsive */
+.row.w-100.justify-content-center {
+  margin: 0 auto !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  justify-content: center !important;
+}
+.col-md-4.mb-3 {
+  margin: 0 auto 18px auto !important;
+  float: none !important;
+}
+
+/* Contact section: center and fit */
+#contact.container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  padding: 0 !important;
+  min-height: 100vh !important;
+}
+
+#contact form {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 32px 28px 40px 28px; /* Increased padding for more space */
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+#contact form > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Add spacing below the last input and above the button */
+#contact form input[type="text"],
+#contact form input[type="email"],
+#contact form textarea {
+  margin-bottom: 18px;
+}
+
+/* Ensure the send button never touches the border */
+#contact button[type="submit"],
+#contact input[type="submit"] {
+  display: block;
+  margin: 32px auto 0 auto !important;
+  align-self: center !important;
+  min-width: 120px;
+  max-width: 220px;
+  width: 60%;
+  font-size: 1.1rem;
+}
+
+/* Project card: glassmorphism + animated gradient border effect like contact form */
+
+.card {
+  position: relative;
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-sizing: border-box;
+  padding: 0 0 18px 0;
+  overflow: hidden;
+  border: none;
+  margin-bottom: 24px;
+  z-index: 1;
+  min-height: 410px; /* Ensures all cards have the same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 160px;         /* Decreased image height */
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+  margin-bottom: 0;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the bottom */
+  align-items: center;       /* Center horizontally */
+  padding: 18px 18px 0 18px;
+  position: relative;
+}
+
+/* Style the "View" button */
+.card-body .btn.btn-primary {
+  margin-top: auto;
+  margin-bottom: 10px;
+  align-self: center;
+  font-size: 0.95rem;
+  padding: 6px 22px;
+  border-radius: 16px;
+  min-width: 80px;
+  max-width: 120px;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+  transition: background 0.2s;
+}
+
+.card-body .btn.btn-primary:hover,
+.card-body .btn.btn-primary:focus {
+  background: #0056b3;
+}
+
+/* Responsive: keep button centered and small on mobile */
+@media (max-width: 900px) {
+  .card-body .btn.btn-primary {
+    font-size: 0.92rem;
+    padding: 6px 16px;
+    min-width: 70px;
+    max-width: 100px;
+    margin-bottom: 8px;
+  }
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0 8px 0;
+  justify-content: center;
+}
+
+.project-tech-badge {
+  
+  color: #23272f;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 4px 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  white-space: nowrap;
+}
+
+/* --- Responsive: Home section content perfectly centered --- */
+/* ✅ Remove default container background and padding constraints if using Bootstrap */
+#home.container {
+  background: transparent;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#home {
+  background: transparent;
+  overflow: hidden; /* Prevent unintended scrollbars during animations */
+}
+
+#home > div {
+  background: transparent;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ✅ Fade-in and slide-up animations for homepage content */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.homepage-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  color: white;
+  margin: 0;
+  opacity: 0;
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.homepage-description {
+  color: rgba(234, 84, 84, 0.92);
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 12px auto;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 700px;
+  padding: 0 12px;
+  opacity: 0;
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* ✅ Icon styling with hover and entrance animation */
+.homepage-icons {
+  margin-top: 18px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.homepage-icons a {
+  color: #333;
+  font-size: 48px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.homepage-icons a:hover {
+  color: #007bff;
+  transform: scale(1.2);
+}
+
+/* ✅ Resume button styling with entrance and hover animation */
+.homepage-resume {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 0.9s;
+}
+
+.homepage-resume a {
+  background: #007bff;
+  color: #fff;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.homepage-resume a:hover {
+  background: #0056b3;
+  transform: translateY(-3px);
+}
+
+/* ✅ Responsive adjustments below 900px */
+@media (max-width: 900px) {
+  #home,
+  #home.container,
+  #home > div {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  #home.container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #home > div {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #home h2.homepage-title,
+  #home .homepage-description,
+  #home .homepage-icons,
+  #home .homepage-resume {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
+
+
+/* --- Responsive: Remove gradient for Web Development & Machine Learning cards --- */
+@media (max-width: 900px) {
+  .d-flex.flex-column.align-items-center > div[style*="linear-gradient"] {
+    background: none !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04) !important;
+    border-radius: 28px !important;
+    padding: 0 !important;
+  }
+  .d-flex.flex-column.align-items-center > div > div {
+    background: rgba(255,255,255,0.98) !important;
+    border-radius: 28px !important;
+    width: 90vw !important;
+    min-width: 0 !important;
+    max-width: 98vw !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* --- Responsive: Remove double borders for contact form --- */
+@media (max-width: 900px) {
+  #contact form {
+    border: none !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important;
+    padding: 18px 4vw 28px 4vw !important;
+    border-radius: 18px !important;
+  }
+  #contact form::after,
+  #contact form::before {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+/* Remove boxes (background, border, shadow) around home page content on mobile */
+
+/* Remove boxes (background, border, shadow) around home page content */
+
+
+/* --- Welcome color and About Me spacing fix (stronger selectors) --- */
+
+/* Welcome heading color and spacing */
+
+
+/* About Me section heading spacing */
+#about h2 {
+  margin-bottom: 7.2rem !important; /* Reduce gap below About Me heading */
+  color: #23272f !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-align: center !important;
+}
+
+/* About Me card spacing from heading */
+#about .about-3d {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+}
+
+/* About Me card content spacing */
+#about .about-3d-inner {
+  margin-top: 0 !important;
+  padding-top: 32px !important;
+}
+
+/* Responsive: keep spacing tight on mobile */
+
+
+/* Show 2 project cards per row on desktop, 1 per row on mobile/tablet */
+
+/* Projects wrapper: grid layout for perfect centering and wrapping */
+/* Center single project card in a row */
+.projects-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 32px;
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+  justify-items: center; /* This will center single cards in their row */
+}
+
+/* Center a single card if only one in the row */
+.projects-wrapper:has(.project-card-col:nth-child(2):not(:last-child)) {
+  justify-items: center;
+}
+.projects-wrapper:has(.project-card-col:only-child) {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.project-card-col {
+  width: 100%;
+  max-width: 500px;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .projects-wrapper {
+    grid-template-columns: 1fr;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    max-width: 100vw;
+    gap: 18px 0;
+  }
+  .project-card-col {
+    max-width: 98vw;
+    min-width: 0;
+  }
+}
+
+/* --- Additional Mobile Styles --- */
+
