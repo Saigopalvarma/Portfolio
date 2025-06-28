@@ -5,6 +5,9 @@ html, body {
   overflow-x: hidden !important;
   box-sizing: border-box;
   background: transparent;
+  
+  scroll-padding-top: 90px; /* Match your navbar height */
+
 }
 
 /* Ensure all main containers do not overflow */
@@ -112,14 +115,14 @@ body > div {
 /* Elegant, perfectly centered About Me card */
 
 .about-3d {
-  width: 60vw;
+  width: 70vw;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items:center;
   justify-content: center;
   background: transparent;
   padding: 0;
-  margin: 0;
+  margin-right: 4vw;
   box-sizing: border-box;
 }
 
@@ -765,19 +768,28 @@ body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skill
 }
 
 .homepage-title {
-  font-size: 2.5rem;
+  font-size: 5rem;
   font-weight: bold;
   letter-spacing: 2px;
   text-align: center;
-  color: white;
+  color:transparent;
   margin: 0;
   opacity: 0;
   animation: fadeSlideUp 1s ease forwards;
+   font-family: "Playfair Display", serif;
+    background: linear-gradient(90deg, #e19999 10%, #f45050e2 50%, #740505 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
+  /* font-family: '; */
+
 
 .homepage-description {
-  color: rgba(234, 84, 84, 0.92);
-  font-size: 2rem;
+  color: transparent;
+  background: linear-gradient(90deg, #fe3737 10%, #074130 50%, #0d4471 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 1.7rem;
   font-weight: 600;
   margin: 12px auto;
   text-align: center;
@@ -787,6 +799,9 @@ body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skill
   opacity: 0;
   animation: fadeSlideUp 1s ease forwards;
   animation-delay: 0.3s;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 /* ✅ Icon styling with hover and entrance animation */
@@ -922,7 +937,7 @@ body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skill
 
 /* About Me section heading spacing */
 #about h2 {
-  margin-bottom: 7.2rem !important; /* Reduce gap below About Me heading */
+  margin-bottom: 4.2rem !important; /* Reduce gap below About Me heading */
   color: #23272f !important;
   font-weight: 700 !important;
   letter-spacing: 1px !important;
@@ -942,6 +957,7 @@ body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skill
   margin-top: 0 !important;
   padding-top: 32px !important;
 }
+
 
 /* Responsive: keep spacing tight on mobile */
 
@@ -996,6 +1012,57 @@ body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skill
     min-width: 0;
   }
 }
+.scroll-down-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: scrollBounceHero 2.2s infinite;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  user-select: none;
+}
 
-/* --- Additional Mobile Styles --- */
+.scroll-down-hero svg {
+  width: 60px !important;
+  height: 80px !important;
+  display: block;
+}
 
+.scroll-hand-finger {
+  animation: fingerBounce 1.7s infinite;
+  transform-origin: center top;
+}
+
+@keyframes fingerBounce {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(8px);}
+}
+
+.chevron-group-hero .chevron-hero {
+  animation: chevronBounceHero 1.7s infinite;
+}
+
+@keyframes chevronBounceHero {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(10px);}
+}
+
+.scroll-down-text {
+  color: #007bff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 8px;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  animation: fadeInScrollText 2.2s infinite;
+}
+
+@keyframes fadeInScrollText {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+@keyframes scrollBounceHero {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(14px);}
+}

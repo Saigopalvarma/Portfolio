@@ -49,7 +49,7 @@ function Portfolio() {
       description: "A full-stack system for criminal record analysis with ML models like BERT and LigGBM integrated using Flask backend and React frontend.",
       link: "https://github.com/Saigopalvarma/criminal-record-management",
       image: "/download.png",
-      tech: ["React", "Flask", "BERT", " LightGBM ", "Kmeans"],
+      tech: ["React", "Flask", "BERT", " LightGBM ", "KMeans"],
     },
     {
       title: "Crop Disease Prediction",
@@ -253,6 +253,64 @@ function Portfolio() {
       Download Resume
     </a>
   </div>
+  {/* Elegant animated scroll-down icon below resume button */}
+ <div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "28px"
+  }}
+>
+  <span
+    className="scroll-down-hero"
+    aria-label="Scroll down"
+    style={{ cursor: "pointer" }}
+    tabIndex={0}
+    role="button"
+    onClick={() => scrollToSection("about")}
+    onKeyPress={e => {
+      if (e.key === "Enter" || e.key === " ") scrollToSection("about");
+    }}
+  >
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+      <circle
+        className="scroll-glow"
+        cx="24"
+        cy="24"
+        r="18"
+        fill="#e3f2fd"
+        opacity="0.7"
+      />
+      <circle
+        className="scroll-bounce"
+        cx="24"
+        cy="24"
+        r="16"
+        fill="#fff"
+        stroke="#007bff"
+        strokeWidth="2.5"
+        style={{ filter: "drop-shadow(0 0 12px #90caf9)" }}
+      />
+      <polyline
+        className="scroll-arrow"
+        points="24,16 24,30"
+        stroke="#007bff"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <polyline
+        className="scroll-arrow"
+        points="18,24 24,30 30,24"
+        stroke="#007bff"
+        strokeWidth="4"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+    
+  </span>
+</div>
 </div>
 
 
@@ -266,21 +324,12 @@ function Portfolio() {
           }`}
           style={{ minHeight: "100vh" }}
         >
-          <h2 style={{ marginBottom: "4rem" }}>About Me</h2>
+          <h2 style={{ marginBottom: "3rem" }}>About Me</h2>
           <div className="about-3d">
             <div className="about-3d-inner">
-              <p>
-                I'm a passionate web developer with a strong foundation in machine
-                learning. I specialize in building responsive, user-centric web
-                applications that seamlessly integrate ML-powered features to solve
-                real-world problems. My work combines elegant frontend design with
-                intelligent backend systems for a complete, efficient user experience.
-              </p>
-              <p>
-                Driven by curiosity and creativity, I constantly explore emerging tools
-                and frameworks across both web and ML domains. Whether it's deploying
-                predictive models or crafting dynamic interfaces, I strive to create
-                solutions that are both innovative and impactful.
+            <p> I am a passionate web developer specializing in creating responsive, user-centric       applications.My frontend skills focus on building clean, intuitive, and dynamic interfaces that enhance user engagement, while my backend expertise ensures robust, secure, and scalable systems to support seamless functionality. 
+          
+                 In addition to web development, I have a strong foundation in machine learning. I design and deploy predictive models to solve real-world problems, integrating intelligent features into applications to add value and efficiency. I am driven by curiosity and innovation, continuously exploring new tools and frameworks to deliver solutions that are impactful and reliable.
               </p>
             </div>
           </div>
