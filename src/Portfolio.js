@@ -64,6 +64,7 @@ function Portfolio() {
   const [activeSection, setActiveSection] = useState("home");
   const [skillsAnimated, setSkillsAnimated] = useState(false);
   const [welcomeAnimated, setWelcomeAnimated] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
 
   // Refs for each section
   const sectionIds = ["home", "about", "skills", "projects", "contact"];
@@ -102,6 +103,12 @@ function Portfolio() {
     setTimeout(() => setWelcomeAnimated(true), 100);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 900);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const scrollToSection = (id) => {
     const idx = sectionIds.indexOf(id);
     if (sectionRefs.current[idx]?.current) {
@@ -122,7 +129,7 @@ function Portfolio() {
           zIndex: 1000,
           borderRadius: "32px",
           padding: "6px", // Border thickness
-          background: "linear-gradient(90deg, #007bff, #00ffb8, #ff6ec4)",
+          background: isMobile ? "#212529" : "linear-gradient(90deg, #007bff, #00ffb8, #ff6ec4)",
           boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
           minHeight: 0,
           minWidth: 0,
@@ -254,63 +261,60 @@ function Portfolio() {
     </a>
   </div>
   {/* Elegant animated scroll-down icon below resume button */}
- <div
-  style={{
+  <div style={{
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "28px"
-  }}
->
-  <span
-    className="scroll-down-hero"
-    aria-label="Scroll down"
-    style={{ cursor: "pointer" }}
-    tabIndex={0}
-    role="button"
-    onClick={() => scrollToSection("about")}
-    onKeyPress={e => {
-      if (e.key === "Enter" || e.key === " ") scrollToSection("about");
-    }}
-  >
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-      <circle
-        className="scroll-glow"
-        cx="24"
-        cy="24"
-        r="18"
-        fill="#e3f2fd"
-        opacity="0.7"
-      />
-      <circle
-        className="scroll-bounce"
-        cx="24"
-        cy="24"
-        r="16"
-        fill="#fff"
-        stroke="#007bff"
-        strokeWidth="2.5"
-        style={{ filter: "drop-shadow(0 0 12px #90caf9)" }}
-      />
-      <polyline
-        className="scroll-arrow"
-        points="24,16 24,30"
-        stroke="#007bff"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <polyline
-        className="scroll-arrow"
-        points="18,24 24,30 30,24"
-        stroke="#007bff"
-        strokeWidth="4"
-        strokeLinecap="round"
-        fill="none"
-      />
-    </svg>
-    
-  </span>
-</div>
+  }}>
+    <span
+      className="scroll-down-hero"
+      aria-label="Scroll down"
+      style={{ cursor: "pointer" }}
+      tabIndex={0}
+      role="button"
+      onClick={() => scrollToSection("about")}
+      onKeyPress={e => {
+        if (e.key === "Enter" || e.key === " ") scrollToSection("about");
+      }}
+    >
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle
+          className="scroll-glow"
+          cx="24"
+          cy="24"
+          r="18"
+          fill="#e3f2fd"
+          opacity="0.7"
+        />
+        <circle
+          className="scroll-bounce"
+          cx="24"
+          cy="24"
+          r="16"
+          fill="#fff"
+          stroke="#007bff"
+          strokeWidth="2.5"
+          style={{ filter: "drop-shadow(0 0 12px #90caf9)" }}
+        />
+        <polyline
+          className="scroll-arrow"
+          points="24,16 24,30"
+          stroke="#007bff"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <polyline
+          className="scroll-arrow"
+          points="18,24 24,30 30,24"
+          stroke="#007bff"
+          strokeWidth="4"
+          strokeLinecap="round"
+          fill="none"
+        />
+      </svg>
+    </span>
+  </div>
 </div>
 
 

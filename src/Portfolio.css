@@ -5,9 +5,7 @@ html, body {
   overflow-x: hidden !important;
   box-sizing: border-box;
   background: transparent;
-  
-  scroll-padding-top: 90px; /* Match your navbar height */
-
+  scroll-padding-top: 90px;
 }
 
 /* Ensure all main containers do not overflow */
@@ -538,7 +536,7 @@ body > div {
     right: 0;
     left: auto;
     min-width: 180px;
-    background: #212529;
+    background: #212529 !important; /* Remove gradient, use solid color */
     border-radius: 20px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     padding: 12px 0 !important;
@@ -886,6 +884,35 @@ body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skill
     box-shadow: none !important;
     border: none !important;
   }
+  .homepage-title {
+    font-size: 2.5rem !important;
+    color: red !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    opacity: 1 !important;
+      font-family: "Playfair Display", serif !important;
+      font-optical-sizing: auto  !important;
+    font-style: normal !important;
+  }
+
+  .homepage-description {
+     font-size: 1.2rem !important;
+    color: rgb(0, 0, 0) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    opacity: 1 !important;
+    font-family: "Playfair Display", serif !important;
+    font-optical-sizing: auto  !important;
+    font-style: normal !important;
+  }
+
+  .scroll-down-hero {
+    display: none !important; /* hide scroll down icon */
+  }
 }
 
 
@@ -1065,4 +1092,35 @@ body, #root, .container, .section-transition, .about-3d, .about-3d-inner, .skill
 @keyframes scrollBounceHero {
   0%, 100% { transform: translateY(0);}
   50% { transform: translateY(14px);}
+}
+#home,
+#about,
+#skills,
+#projects,
+#contact {
+  scroll-margin-top: 90px !important; /* Adjust to your navbar height */
+}
+
+@media (max-width: 900px) {
+  .scroll-down-hero {
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+  .scroll-down-hero svg {
+    width: 36px !important;
+    height: 48px !important;
+    background: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: block;
+  }
+  .scroll-down-text {
+    font-size: 1rem !important;
+    margin-top: 4px !important;
+    color: #007bff !important;
+    text-shadow: 0 1px 4px #fff, 0 0 2px #e0e7ef;
+    display: block !important;
+  }
 }
